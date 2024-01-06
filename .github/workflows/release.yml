@@ -26,37 +26,15 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install poetry poetry-dynamic-versioning
 
-#    - name: Setup TESTPYPI repo
-#      run: |
-#        poetry config repositories.testpypi https://test.pypi.org/legacy/
-
     - name: Build package
       run: |
         poetry build
 
-    ################################
-    #  TEMPORARY TEST PYPI STEPS   #
-    ################################
-#    - name: Mint token for Testpypi
-#      id: mint
-#      uses: tschm/token-mint-action@v1.0.2
-#      with:
-#        audience: testpypi
-#    - name: Publish the package to Testpypi
-#      run: |
-#        poetry publish -r testpypi -u __token__ -p '${{ steps.mint.outputs.api-token }}'
     - name: Publish package distributions to TestPyPI
       uses: pypa/gh-action-pypi-publish@release/v1
+      ################################
+      # REMOVE CUSTOM REPOSITORY TO  #
+      # PUBLISH ON OFFICIAL PYPI     #
+      ################################
       with:
         repository-url: https://test.pypi.org/legacy/
-    #####################################
-    #  DISABLE TEST STEPS AND UNCOMMENT #
-    #  THE FOLLOWING STEPS WHEN READY   #
-    #####################################
-#    - name: Mint token for Pypi
-#      id: mint
-#      uses: tschm/token-mint-action@v1.0.2
-
-#    - name: Publish the package to Pypi
-#      run: |
-#        poetry publish -u __token__ -p '${{ steps.mint.outputs.api-token }}'
