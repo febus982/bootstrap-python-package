@@ -7,16 +7,13 @@ on:
     types: [published]
 
 permissions:
+  # This permission is required for trusted publishing.
+  id-token: write
   contents: read
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-
-    permissions:
-      # This permission is required for trusted publishing.
-      id-token: write
-      contents: read
 
     steps:
     - uses: actions/checkout@v3
