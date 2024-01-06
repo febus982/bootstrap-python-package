@@ -1,0 +1,50 @@
+# This workflow will publish a python package on pypi, when a release is created
+
+name: release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      # This permission is required for trusted publishing.
+      id-token: write
+      contents: read
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.12"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install poetry poetry-dynamic-versioning
+
+    - name: Setup TESTPYPI repo
+      run: |
+        poetry config repositories.testpypi https://test.pypi.org/legacy/
+
+    - name: Build package
+      run: |
+        poetry build
+
+    - name: Mint token
+      id: mint
+      uses: tschm/token-mint-action@v1.0.2
+
+    - name: Publish the package to Testpypi
+      run: |
+        poetry publish -r testpypi -u __token__ -p '${{ steps.mint.outputs.api-token }}'
+
+#    - name: Publish the package
+#      run: |
+#        poetry publish -u __token__ -p '${{ steps.mint.outputs.api-token }}'
