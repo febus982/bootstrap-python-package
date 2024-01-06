@@ -34,14 +34,26 @@ jobs:
       run: |
         poetry build
 
-    - name: Mint token
+    ################################
+    #  TEMPORARY TEST PYPI STEPS   #
+    ################################
+    - name: Mint token for Testpypi
       id: mint
       uses: tschm/token-mint-action@v1.0.2
-
+      with:
+        audience: testpypi
     - name: Publish the package to Testpypi
       run: |
         poetry publish -r testpypi -u __token__ -p '${{ steps.mint.outputs.api-token }}'
 
-#    - name: Publish the package
+    #####################################
+    #  DISABLE TEST STEPS AND UNCOMMENT #
+    #  THE FOLLOWING STEPS WHEN READY   #
+    #####################################
+#    - name: Mint token for Pypi
+#      id: mint
+#      uses: tschm/token-mint-action@v1.0.2
+
+#    - name: Publish the package to Pypi
 #      run: |
 #        poetry publish -u __token__ -p '${{ steps.mint.outputs.api-token }}'
