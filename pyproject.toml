@@ -76,7 +76,7 @@ parallel = true
 exclude_also = [
     "pragma: no cover",
     "pass",
-    "...",
+    "\\.\\.\\.",
     ]
 
 
