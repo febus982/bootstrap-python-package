@@ -27,7 +27,8 @@ previous python versions directly in the CI pipeline to catch these bugs.
     * Owner: The github repository owner (in this case `febus982`)
     * Repository name: The github repository name (in this case `bootstrap-python-package`)
     * Workflow name: `release.yml`
-* Create a github actions secret named `CODECLIMATE_REPORTER_ID` (at URL https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions) 
+* Enable GitHub Actions for GitHub Pages (at URL https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages) 
+* Create a GitHub Actions secret named `CODECLIMATE_REPORTER_ID` (at URL https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions) 
   containing the codeclimate reporter id (you can find it at https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter).
   If you don't want to use CodeClimate just delete `workflows/python-quality.yml`.
 * Update the badges in `README.md`! (check [shields.io](https://shields.io/) for extra badges)
