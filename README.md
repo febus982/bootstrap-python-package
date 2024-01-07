@@ -47,6 +47,10 @@ previous python versions directly in the CI pipeline to catch these bugs.
   If you don't want to use CodeClimate just delete `workflows/python-quality.yml`.
 * Update the badges in `README.md`! (check [shields.io](https://shields.io/) for extra badges)
 
+**IMPORTANT:** The repository is configured to deploy on the [test PyPI repository](https://test.pypi.org/).
+It's strongly recommended to create the project in the [test PyPI repository](https://test.pypi.org/) and test
+the deployment pipeline. When you're happy with the result, create the project on the official [PyPI repository](https://pypi.org/)
+and remove the marked lines in `workflows/release.yml`.
 
 ## Package release
 
