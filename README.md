@@ -2,11 +2,11 @@
 [![Stable Version](https://img.shields.io/pypi/v/bootstrap-python-package?color=blue)](https://pypi.org/project/bootstrap-python-package/)
 [![stability-beta](https://img.shields.io/badge/stability-beta-33bbff.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#beta)
 
-[![Python 3.8](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.8.yml/badge.svg?event=push)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.8.yml)
-[![Python 3.9](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.9.yml/badge.svg?event=push)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.9.yml)
-[![Python 3.10](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.10.yml/badge.svg?event=push)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.10.yml)
-[![Python 3.11](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.11.yml/badge.svg?event=push)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.11.yml)
-[![Python 3.12](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.12.yml/badge.svg?event=push)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.12.yml)
+[![Python 3.8](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.8.yml/badge.svg?branch=main)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.8.yml)
+[![Python 3.9](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.9.yml/badge.svg?branch=main)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.9.yml)
+[![Python 3.10](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.10.yml/badge.svg?branch=main)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.10.yml)
+[![Python 3.11](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.11.yml/badge.svg?branch=main)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.11.yml)
+[![Python 3.12](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.12.yml/badge.svg?branch=main)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.12.yml)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/593e78ec96ed5ebb0dd3/maintainability)](https://codeclimate.com/github/febus982/bootstrap-python-package/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/593e78ec96ed5ebb0dd3/test_coverage)](https://codeclimate.com/github/febus982/bootstrap-python-package/test_coverage)
