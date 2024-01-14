@@ -25,6 +25,9 @@ lint-fix:
 	poetry run ruff . --fix
 
 dev-dependencies:
+	poetry install --with dev --no-root
+
+update-dependencies:
 	poetry update --with dev
 
 fix:  format-fix lint-fix
