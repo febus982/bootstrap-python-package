@@ -8,6 +8,8 @@ on:
 
 jobs:
   build:
+    outputs:
+      docs-version: ${{ steps.docs-version.outputs.version }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -35,6 +37,11 @@ jobs:
           name: dist
           path: dist
           retention-days: 1
+
+      - name: Export version for site docs
+        id: docs-version
+        run: ./ci-scripts/docs-version.sh >> "$GITHUB_OUTPUT"
+      
 
   publish:
     runs-on: ubuntu-latest
@@ -64,3 +71,9 @@ jobs:
         ################################
         with:
           repository-url: https://test.pypi.org/legacy/
+
+  site:
+    needs: build
+    uses: ./.github/workflows/reusable-github-pages.yml
+    with:
+      site-version: "${{needs.build.outputs.docs-version.version}}"
