@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     outputs:
-      docs-version: ${{ steps.docs-version.outputs.version }}
+      version: ${{ steps.docs-version-step.outputs.version }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -43,6 +43,7 @@ jobs:
         run: |
           ./ci-scripts/docs-version.sh
           echo "Identified version: $(./ci-scripts/docs-version.sh)"
+          echo "version=$(./ci-scripts/docs-version.sh)"
           echo "version=$(./ci-scripts/docs-version.sh)" >> $GITHUB_OUTPUT
 
   publish:
@@ -80,6 +81,6 @@ jobs:
     permissions:
       contents: write
     with:
-      site-version: ${{needs.build.outputs.docs-version}}
+      site-version: ${{ needs.build.outputs.version }}
       version-alias: "stable"
       set-default: true
