@@ -75,5 +75,7 @@ jobs:
   site:
     needs: build
     uses: ./.github/workflows/reusable-github-pages.yml
+    permissions:
+      contents: write
     with:
       site-version: "${{needs.build.outputs.docs-version.version}}"
