@@ -40,7 +40,7 @@ jobs:
 
       - name: Export version for site docs
         id: docs-version
-        run: ./ci-scripts/docs-version.sh >> "$GITHUB_OUTPUT"
+        run: echo $(./ci-scripts/docs-version.sh) >> "$GITHUB_OUTPUT"
       
 
   publish:
