@@ -21,6 +21,7 @@ theme:
   palette:
     # Palette toggle for light mode
     - scheme: default
+      media: "(prefers-color-scheme: light)"
       primary: teal
       toggle:
         icon: material/brightness-7
@@ -28,6 +29,7 @@ theme:
 
     # Palette toggle for dark mode
     - scheme: slate
+      media: "(prefers-color-scheme: dark)"
       primary: teal
       toggle:
         icon: material/brightness-4
