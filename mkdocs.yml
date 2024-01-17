@@ -13,6 +13,7 @@ plugins:
 
 theme:
   name: material
+  custom_dir: mkdocs-overrides
   features:
     - navigation.expand
     - navigation.top
@@ -41,6 +42,7 @@ extra:
       link: https://www.linkedin.com/in/federico-b-a0b78232
   version:
     provider: mike
+    default: stable
 
 nav:
   - Home: index.md
