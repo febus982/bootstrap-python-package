@@ -8,6 +8,10 @@ on:
         required: false
         type: string
         default: ""
+      branch:
+        required: false
+        type: string
+        default: "gh-pages"
       set-default:
         required: false
         type: boolean
@@ -58,9 +62,21 @@ jobs:
 
       - name: Build and deploy static pages
         run: |
-          mike deploy ${{ inputs.site-version }} ${{ inputs.version-alias }} --update-aliases --push
+          mike deploy ${{ inputs.site-version }} ${{ inputs.version-alias }} --update-aliases --push --branch ${{ inputs.branch }}
 
       - name: Set default site version
         if: ${{ inputs.site-default }}
         run: |
-          mike set-default ${{ inputs.set-version }} --push
+          mike set-default ${{ inputs.set-version }} --push --branch ${{ inputs.branch }}
+
+      #  `mike` is specifically built to be used together with GitHub pages.
+      # To upload the website to another service (i.e. AWS S3) uncomment
+      # the following step to download the rendered HTML documentation to ./site directory.
+      # You'll need to implement the upload steps for your provider.
+
+#      - name: Download artifact to ./site
+#        run: |
+#          rm -rf ./site
+#          git archive -o site.tar ${{ inputs.branch }}
+#          mkdir -p ./site
+#          tar xf site.tar -C ./site
