@@ -65,7 +65,7 @@ jobs:
           mike deploy ${{ inputs.site-version }} ${{ inputs.version-alias }} --update-aliases --push --branch ${{ inputs.branch }}
 
       - name: Set default site version
-        if: ${{ inputs.site-default }}
+        if: ${{ inputs.set-default }}
         run: |
           mike set-default ${{ inputs.set-version }} --push --branch ${{ inputs.branch }}
 
