@@ -83,6 +83,18 @@
     
       <div data-md-color-scheme="default" data-md-component="outdated" hidden>
         
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  You're not viewing the latest version.
+  <a href="../.">
+    <strong>Click here to go to latest.</strong>
+  </a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
       </div>
     
     
@@ -125,7 +137,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
@@ -135,7 +147,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
@@ -424,7 +436,7 @@ It is configured with all the following features:</p>
 </ul>
 <p>This project doesn't currently use <a href="https://tox.wiki/en/4.11.4/index.html">tox</a> or other matrix
 testing utilities. I prefer to run the tests only against the latest python locally, and run 
-previous python versions directly in the CI pipeline to catch these bugs.</p>
+previous python versions directly in the CI pipeline.</p>
 <h2 id="how-to-use-this-repository-template-to-create-a-new-package">How to use this repository template to create a new package</h2>
 <ul>
 <li>Create your github repository using this template. (The big green <code>Use this template</code> button)</li>
@@ -437,10 +449,6 @@ previous python versions directly in the CI pipeline to catch these bugs.</p>
 <li>Workflow name: <code>release.yml</code></li>
 </ul>
 </li>
-<li>Create a GitHub Actions secret named <code>CODECLIMATE_REPORTER_ID</code> (at URL https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions) 
-  containing the codeclimate reporter id (you can find it at https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter).
-  If you don't want to use CodeClimate just delete <code>workflows/python-quality.yml</code>.</li>
-<li>Update the badges in <code>README.md</code>! (check <a href="https://shields.io/">shields.io</a> for extra badges)</li>
 <li>Setup local development:<ul>
 <li>Clone the repository</li>
 <li>Install poetry <code>pip install poetry</code></li>
@@ -449,9 +457,13 @@ previous python versions directly in the CI pipeline to catch these bugs.</p>
 </li>
 <li>Setup GitHub pages (this need local development setup):<ul>
 <li>Initialise documentation branch <code>poetry run mike deploy dev latest --update-aliases --push</code></li>
-<li>Enable GitHub Actions for GitHub Pages (at URL https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages) </li>
+<li>Configure GitHub Pages to deploy from the <code>gh-pages</code> branch (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages</code>) </li>
 </ul>
 </li>
+<li>Create a GitHub Actions secret named <code>CODECLIMATE_REPORTER_ID</code> (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions</code>) 
+  containing the codeclimate reporter id (you can find it at <code>https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter</code>).
+  If you don't want to use CodeClimate just delete <code>workflows/python-quality.yml</code>.</li>
+<li>Update the badges in <code>README.md</code>! (check <a href="https://shields.io/">shields.io</a> for extra badges)</li>
 </ul>
 <p><strong>IMPORTANT:</strong> The repository is configured to deploy on the <a href="https://test.pypi.org/">test PyPI repository</a>.
 It's strongly recommended to create the project in the <a href="https://test.pypi.org/">test PyPI repository</a> and test
@@ -461,8 +473,11 @@ and remove the marked lines in <code>workflows/release.yml</code>.</p>
 <p>This setup uses <a href="https://github.com/mtkennerly/poetry-dynamic-versioning">poetry-dynamic-versioning</a>.
 This means it's not necessary to commit the version in the code but the CI pipeline
 will infer it from the git tag.</p>
-<p>To release a new version, just create a new release in the github repository. It will
-create a new tag and do all the magic.</p>
+<p>To release a new version, just create a new release and tag in the GitHub repository, to:</p>
+<ul>
+<li>Build and deploy the python package to PyPI</li>
+<li>Build and deploy a new version of the documentation to GitHub pages</li>
+</ul>
 <p><strong>IMPORTANT:</strong> The default configuration requires the release name and the tag to follow
 the convention <code>vX.X.X</code> (semantic versioning preceded by lowercase <code>v</code>). It will publish
 the correct version on Pypi, omitting the <code>v</code> (ie. <code>v1.0.0</code> will publish <code>1.0.0</code>).</p>
@@ -544,7 +559,7 @@ the correct version on Pypi, omitting the <code>v</code> (ie. <code>v1.0.0</code
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.top", "content.code.copy"], "search": "assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.top", "content.code.copy"], "search": "assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "stable", "provider": "mike"}}</script>
     
     
       <script src="assets/javascripts/bundle.7389ff0e.min.js"></script>
