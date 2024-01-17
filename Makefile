@@ -1,4 +1,4 @@
-.PHONY: docs docs-build
+.PHONY: docs
 
 test:
 	poetry run pytest -n auto --cov
@@ -35,6 +35,3 @@ check: typing test format lint
 
 docs:
 	poetry run mkdocs serve
-
-docs-build:
-	poetry run mkdocs build

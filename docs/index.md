@@ -27,11 +27,17 @@ previous python versions directly in the CI pipeline to catch these bugs.
     * Owner: The github repository owner (in this case `febus982`)
     * Repository name: The github repository name (in this case `bootstrap-python-package`)
     * Workflow name: `release.yml`
-* Enable GitHub Actions for GitHub Pages (at URL https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages) 
 * Create a GitHub Actions secret named `CODECLIMATE_REPORTER_ID` (at URL https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions) 
   containing the codeclimate reporter id (you can find it at https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter).
   If you don't want to use CodeClimate just delete `workflows/python-quality.yml`.
 * Update the badges in `README.md`! (check [shields.io](https://shields.io/) for extra badges)
+* Setup local development:
+    * Clone the repository
+    * Install poetry `pip install poetry`
+    * Install dev dependencies with `make dev-dependencies`
+* Setup GitHub pages (this need local development setup):
+    * Initialise documentation branch `poetry run mike deploy dev latest --update-aliases --push`
+    * Enable GitHub Actions for GitHub Pages (at URL https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages) 
 
 **IMPORTANT:** The repository is configured to deploy on the [test PyPI repository](https://test.pypi.org/).
 It's strongly recommended to create the project in the [test PyPI repository](https://test.pypi.org/) and test
@@ -58,6 +64,7 @@ This format can be customized, refer to [poetry-dynamic-versioning docs](https:/
 All the common commands used during development can be run using make targets:
 
 * `make dev-dependencies`: Install dev requirements
+* `make update-dependencies`: Update dev requirements
 * `make test`: Run test suite
 * `make check`: Run tests, code style and lint checks
 * `make fix`: Run code style and lint automatic fixes (where possible)
