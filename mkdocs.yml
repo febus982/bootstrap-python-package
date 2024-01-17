@@ -7,6 +7,10 @@ docs_dir: docs/
 repo_name: 'febus982/bootstrap-python-package'
 repo_url: 'https://github.com/febus982/bootstrap-python-package'
 
+plugins:
+  - search
+  - mike
+
 theme:
   name: material
   features:
@@ -15,7 +19,6 @@ theme:
     - content.code.copy
 
   palette:
-
     # Palette toggle for light mode
     - scheme: default
       primary: teal
@@ -34,6 +37,8 @@ extra:
   social:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/federico-b-a0b78232
+  version:
+    provider: mike
 
 nav:
   - Home: index.md
