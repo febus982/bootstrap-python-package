@@ -2,4 +2,4 @@
 
 VERSION=$(poetry version -s)
 SEMVER=( ${VERSION//./ } )
-echo "version=${SEMVER[0]}.${SEMVER[1]}"
+echo "${SEMVER[0]}.${SEMVER[1]}"
