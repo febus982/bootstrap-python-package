@@ -15,7 +15,7 @@ It is configured with all the following features:
 
 This project doesn't currently use [tox](https://tox.wiki/en/4.11.4/index.html) or other matrix
 testing utilities. I prefer to run the tests only against the latest python locally, and run 
-previous python versions directly in the CI pipeline to catch these bugs.
+previous python versions directly in the CI pipeline.
 
 ## How to use this repository template to create a new package
 
@@ -27,17 +27,17 @@ previous python versions directly in the CI pipeline to catch these bugs.
     * Owner: The github repository owner (in this case `febus982`)
     * Repository name: The github repository name (in this case `bootstrap-python-package`)
     * Workflow name: `release.yml`
-* Create a GitHub Actions secret named `CODECLIMATE_REPORTER_ID` (at URL https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions) 
-  containing the codeclimate reporter id (you can find it at https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter).
-  If you don't want to use CodeClimate just delete `workflows/python-quality.yml`.
-* Update the badges in `README.md`! (check [shields.io](https://shields.io/) for extra badges)
 * Setup local development:
     * Clone the repository
     * Install poetry `pip install poetry`
     * Install dev dependencies with `make dev-dependencies`
 * Setup GitHub pages (this need local development setup):
     * Initialise documentation branch `poetry run mike deploy dev latest --update-aliases --push`
-    * Enable GitHub Actions for GitHub Pages (at URL https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages) 
+    * Configure GitHub Pages to deploy from the `gh-pages` branch (at URL `https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages`) 
+* Create a GitHub Actions secret named `CODECLIMATE_REPORTER_ID` (at URL `https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions`) 
+  containing the codeclimate reporter id (you can find it at `https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter`).
+  If you don't want to use CodeClimate just delete `workflows/python-quality.yml`.
+* Update the badges in `README.md`! (check [shields.io](https://shields.io/) for extra badges)
 
 **IMPORTANT:** The repository is configured to deploy on the [test PyPI repository](https://test.pypi.org/).
 It's strongly recommended to create the project in the [test PyPI repository](https://test.pypi.org/) and test
@@ -50,8 +50,10 @@ This setup uses [poetry-dynamic-versioning](https://github.com/mtkennerly/poetry
 This means it's not necessary to commit the version in the code but the CI pipeline
 will infer it from the git tag.
 
-To release a new version, just create a new release in the github repository. It will
-create a new tag and do all the magic.
+To release a new version, just create a new release and tag in the GitHub repository, to:
+
+* Build and deploy the python package to PyPI
+* Build and deploy a new version of the documentation to GitHub pages
 
 **IMPORTANT:** The default configuration requires the release name and the tag to follow
 the convention `vX.X.X` (semantic versioning preceded by lowercase `v`). It will publish
