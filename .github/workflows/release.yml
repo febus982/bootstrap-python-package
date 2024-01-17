@@ -80,6 +80,6 @@ jobs:
     permissions:
       contents: write
     with:
-      site-version: "${{needs.build.outputs.docs-version.version}}"
+      site-version: ${{needs.build.outputs.docs-version}}
       version-alias: "stable"
       set-default: true
