@@ -79,3 +79,5 @@ jobs:
       contents: write
     with:
       site-version: "${{needs.build.outputs.docs-version.version}}"
+      version-alias: "stable"
+      set-default: true
