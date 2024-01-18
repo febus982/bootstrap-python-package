@@ -42,9 +42,11 @@ optional = true
 
 [tool.poetry.group.dev.dependencies]
 coverage = ">=6.5.0"
+bandit = ">=1.7.6"
 black = ">=22.10.0"
 mkdocs = ">=1.4.3"
 mkdocs-material = ">=9.1.16"
+mike = ">=2.0.0"
 mypy = ">=0.990"
 pymdown-extensions = ">=10.0.1"
 pytest = ">=7.2.0"
@@ -53,7 +55,6 @@ pytest-cov = ">=4.0.0"
 pytest-factoryboy = ">=2.5.0"
 pytest-xdist = ">=3.0.2"
 ruff = ">=0.0.263"
-mike = "^2.0.0"
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
