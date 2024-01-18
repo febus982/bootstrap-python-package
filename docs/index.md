@@ -7,6 +7,7 @@ It is configured with all the following features:
 * Typing using [mypy](https://mypy.readthedocs.io/en/stable/)
 * Linting using [ruff](https://github.com/astral-sh/ruff)
 * Code formatter using [black](https://pypi.org/project/black/)
+* Security checks using [bandit](https://github.com/PyCQA/bandit)
 * Integration with CodeClimate for code quality and coverage checks
 * CI pipeline supporting:
     * testing against multiple python versions
