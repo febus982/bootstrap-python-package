@@ -7,6 +7,7 @@
 [![Python 3.10](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.10.yml/badge.svg?branch=main)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.10.yml)
 [![Python 3.11](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.11.yml/badge.svg?branch=main)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.11.yml)
 [![Python 3.12](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.12.yml/badge.svg?branch=main)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-3.12.yml)
+[![Bandit checks](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-bandit.yml/badge.svg?branch=main)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-bandit.yml)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/593e78ec96ed5ebb0dd3/maintainability)](https://codeclimate.com/github/febus982/bootstrap-python-package/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/593e78ec96ed5ebb0dd3/test_coverage)](https://codeclimate.com/github/febus982/bootstrap-python-package/test_coverage)
