@@ -18,6 +18,9 @@ format:
 lint:
 	poetry run ruff .
 
+bandit:
+	poetry run bandit -c .bandit.yml -r .
+
 format-fix:
 	poetry run black .
 
@@ -31,7 +34,7 @@ update-dependencies:
 	poetry update --with dev
 
 fix:  format-fix lint-fix
-check: typing test format lint
+check: typing format lint test bandit
 
 docs:
 	poetry run mkdocs serve
