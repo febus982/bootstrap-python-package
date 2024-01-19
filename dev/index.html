@@ -450,6 +450,10 @@ previous python versions directly in the CI pipeline.</p>
 <li>Workflow name: <code>release.yml</code></li>
 </ul>
 </li>
+<li>Create a GitHub Actions secret named <code>CODECLIMATE_REPORTER_ID</code> (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions</code>) 
+  containing the codeclimate reporter id (you can find it at <code>https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter</code>).
+  If you don't want to use CodeClimate just delete <code>workflows/python-quality.yml</code>.</li>
+<li>Update the badges in <code>README.md</code>! (check <a href="https://shields.io/">shields.io</a> for extra badges)</li>
 <li>Setup local development:<ul>
 <li>Clone the repository</li>
 <li>Install poetry <code>pip install poetry</code></li>
@@ -458,13 +462,10 @@ previous python versions directly in the CI pipeline.</p>
 </li>
 <li>Setup GitHub pages (this need local development setup):<ul>
 <li>Initialise documentation branch <code>poetry run mike deploy dev latest --update-aliases --push</code></li>
-<li>Configure GitHub Pages to deploy from the <code>gh-pages</code> branch (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages</code>) </li>
+<li>Configure GitHub Pages to deploy from the <code>gh-pages</code> branch (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages</code>)</li>
+<li>Add the <code>main</code> branch and the <code>v*.*.*</code> tag rules to the "deployment branches and tags" list in the <code>gh-pages</code> environment (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/environments</code>)</li>
 </ul>
 </li>
-<li>Create a GitHub Actions secret named <code>CODECLIMATE_REPORTER_ID</code> (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions</code>) 
-  containing the codeclimate reporter id (you can find it at <code>https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter</code>).
-  If you don't want to use CodeClimate just delete <code>workflows/python-quality.yml</code>.</li>
-<li>Update the badges in <code>README.md</code>! (check <a href="https://shields.io/">shields.io</a> for extra badges)</li>
 </ul>
 <p><strong>IMPORTANT:</strong> The repository is configured to deploy on the <a href="https://test.pypi.org/">test PyPI repository</a>.
 It's strongly recommended to create the project in the <a href="https://test.pypi.org/">test PyPI repository</a> and test
