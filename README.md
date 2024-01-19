@@ -51,7 +51,8 @@ previous python versions directly in the CI pipeline.
     * Install dev dependencies with `make dev-dependencies`
 * Setup GitHub pages (this need local development setup):
     * Initialise documentation branch `poetry run mike deploy dev latest --update-aliases --push`
-    * Configure GitHub Pages to deploy from the `gh-pages` branch (at URL `https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages`) 
+    * Configure GitHub Pages to deploy from the `gh-pages` branch (at URL `https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages`)
+    * Add the `main` branch and the `v*.*.*` tag rules to the "deployment branches and tags" list in the `gh-pages` environment (at URL `https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/environments`)
 
 **IMPORTANT:** The repository is configured to deploy on the [test PyPI repository](https://test.pypi.org/).
 It's strongly recommended to create the project in the [test PyPI repository](https://test.pypi.org/) and test
