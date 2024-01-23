@@ -49,6 +49,8 @@ previous python versions directly in the CI pipeline.
     * Clone the repository
     * Install poetry `pip install poetry`
     * Install dev dependencies with `make dev-dependencies`
+    * (optional) It is strongly recommended to install [pre-commit](https://pre-commit.com/#installation)
+      and run `pre-commit install` so that formatting and linting are automatically executed during `git commit`.
 * Setup GitHub pages (this need local development setup):
     * Initialise documentation branch `poetry run mike deploy dev latest --update-aliases --push`
     * Configure GitHub Pages to deploy from the `gh-pages` branch (at URL `https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages`)
