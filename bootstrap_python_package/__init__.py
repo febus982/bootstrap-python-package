@@ -1,4 +1,10 @@
 def some_function() -> str:
+    """
+    Some function docstring
+
+    :return: Some string
+    :rtype: str
+    """
     return "some_variable_to_test"
 
 

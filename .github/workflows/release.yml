@@ -41,10 +41,10 @@ jobs:
       - name: Export version for site docs
         id: docs-version-step
         run: |
-          ./ci-scripts/docs-version.sh
-          echo "Identified version: $(./ci-scripts/docs-version.sh)"
-          echo "version=$(./ci-scripts/docs-version.sh)"
-          echo "version=$(./ci-scripts/docs-version.sh)" >> $GITHUB_OUTPUT
+          ./scripts/docs-version.sh
+          echo "Identified version: $(./scripts/docs-version.sh)"
+          echo "version=$(./scripts/docs-version.sh)"
+          echo "version=$(./scripts/docs-version.sh)" >> $GITHUB_OUTPUT
 
   publish:
     runs-on: ubuntu-latest
