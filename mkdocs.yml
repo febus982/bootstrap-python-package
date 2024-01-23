@@ -53,10 +53,6 @@ extra:
     provider: mike
     default: stable
 
-#nav:
-#  - Home: index.md
-#  - api-reference.md
-
 markdown_extensions:
   - pymdownx.details
   - pymdownx.blocks.admonition
