@@ -507,7 +507,7 @@ It is configured with all the following features:</p>
 </li>
 </ul>
 <p>This project doesn't currently use <a href="https://tox.wiki/en/4.11.4/index.html">tox</a> or other matrix
-testing utilities. I prefer to run the tests only against the latest python locally, and run 
+testing utilities. I prefer to run the tests only against the latest python locally, and run
 previous python versions directly in the CI pipeline.</p>
 <h2 id="how-to-use-this-repository-template-to-create-a-new-package">How to use this repository template to create a new package</h2>
 <ul>
@@ -521,7 +521,7 @@ previous python versions directly in the CI pipeline.</p>
 <li>Workflow name: <code>release.yml</code></li>
 </ul>
 </li>
-<li>Create a GitHub Actions secret named <code>CODECLIMATE_REPORTER_ID</code> (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions</code>) 
+<li>Create a GitHub Actions secret named <code>CODECLIMATE_REPORTER_ID</code> (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions</code>)
   containing the codeclimate reporter id (you can find it at <code>https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter</code>).
   If you don't want to use CodeClimate just delete <code>workflows/python-quality.yml</code>.</li>
 <li>Update the badges in <code>README.md</code>! (check <a href="https://shields.io/">shields.io</a> for extra badges)</li>
@@ -529,6 +529,8 @@ previous python versions directly in the CI pipeline.</p>
 <li>Clone the repository</li>
 <li>Install poetry <code>pip install poetry</code></li>
 <li>Install dev dependencies with <code>make dev-dependencies</code></li>
+<li>(optional) It is strongly recommended to install <a href="https://pre-commit.com/#installation">pre-commit</a>
+  and run <code>pre-commit install</code> so that formatting and linting are automatically executed during <code>git commit</code>.</li>
 </ul>
 </li>
 <li>Setup GitHub pages (this need local development setup):<ul>
