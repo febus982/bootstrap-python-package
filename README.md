@@ -28,7 +28,7 @@ It is configured with all the following features:
     * GitHub pages documentation using [mkdocs](https://www.mkdocs.org)
 
 This project doesn't currently use [tox](https://tox.wiki/en/4.11.4/index.html) or other matrix
-testing utilities. I prefer to run the tests only against the latest python locally, and run 
+testing utilities. I prefer to run the tests only against the latest python locally, and run
 previous python versions directly in the CI pipeline.
 
 ## How to use this repository template to create a new package
@@ -41,7 +41,7 @@ previous python versions directly in the CI pipeline.
     * Owner: The github repository owner (in this case `febus982`)
     * Repository name: The github repository name (in this case `bootstrap-python-package`)
     * Workflow name: `release.yml`
-* Create a GitHub Actions secret named `CODECLIMATE_REPORTER_ID` (at URL `https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions`) 
+* Create a GitHub Actions secret named `CODECLIMATE_REPORTER_ID` (at URL `https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions`)
   containing the codeclimate reporter id (you can find it at `https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter`).
   If you don't want to use CodeClimate just delete `workflows/python-quality.yml`.
 * Update the badges in `README.md`! (check [shields.io](https://shields.io/) for extra badges)
@@ -49,6 +49,8 @@ previous python versions directly in the CI pipeline.
     * Clone the repository
     * Install poetry `pip install poetry`
     * Install dev dependencies with `make dev-dependencies`
+    * (optional) It is strongly recommended to install [pre-commit](https://pre-commit.com/#installation)
+      and run `pre-commit install` so that formatting and linting are automatically executed during `git commit`.
 * Setup GitHub pages (this need local development setup):
     * Initialise documentation branch `poetry run mike deploy dev latest --update-aliases --push`
     * Configure GitHub Pages to deploy from the `gh-pages` branch (at URL `https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages`)
