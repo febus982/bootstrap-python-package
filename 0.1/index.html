@@ -14,6 +14,8 @@
       
       
       
+        <link rel="next" href="API-Reference/">
+      
       
       <link rel="icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
@@ -45,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -124,7 +128,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              bootstrap-python-package
             
           </span>
         </div>
@@ -280,7 +284,7 @@
           
   
   <span class="md-ellipsis">
-    Home
+    bootstrap-python-package
   </span>
   
 
@@ -291,7 +295,7 @@
         
   
   <span class="md-ellipsis">
-    Home
+    bootstrap-python-package
   </span>
   
 
@@ -342,6 +346,73 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="API-Reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -426,6 +497,7 @@ It is configured with all the following features:</p>
 <li>Typing using <a href="https://mypy.readthedocs.io/en/stable/">mypy</a></li>
 <li>Linting using <a href="https://github.com/astral-sh/ruff">ruff</a></li>
 <li>Code formatter using <a href="https://pypi.org/project/black/">black</a></li>
+<li>Security checks using <a href="https://github.com/PyCQA/bandit">bandit</a></li>
 <li>Integration with CodeClimate for code quality and coverage checks</li>
 <li>CI pipeline supporting:<ul>
 <li>testing against multiple python versions</li>
@@ -435,7 +507,7 @@ It is configured with all the following features:</p>
 </li>
 </ul>
 <p>This project doesn't currently use <a href="https://tox.wiki/en/4.11.4/index.html">tox</a> or other matrix
-testing utilities. I prefer to run the tests only against the latest python locally, and run 
+testing utilities. I prefer to run the tests only against the latest python locally, and run
 previous python versions directly in the CI pipeline.</p>
 <h2 id="how-to-use-this-repository-template-to-create-a-new-package">How to use this repository template to create a new package</h2>
 <ul>
@@ -449,21 +521,24 @@ previous python versions directly in the CI pipeline.</p>
 <li>Workflow name: <code>release.yml</code></li>
 </ul>
 </li>
+<li>Create a GitHub Actions secret named <code>CODECLIMATE_REPORTER_ID</code> (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions</code>)
+  containing the codeclimate reporter id (you can find it at <code>https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter</code>).
+  If you don't want to use CodeClimate just delete <code>workflows/python-quality.yml</code>.</li>
+<li>Update the badges in <code>README.md</code>! (check <a href="https://shields.io/">shields.io</a> for extra badges)</li>
 <li>Setup local development:<ul>
 <li>Clone the repository</li>
 <li>Install poetry <code>pip install poetry</code></li>
 <li>Install dev dependencies with <code>make dev-dependencies</code></li>
+<li>(optional) It is strongly recommended to install <a href="https://pre-commit.com/#installation">pre-commit</a>
+  and run <code>pre-commit install</code> so that formatting and linting are automatically executed during <code>git commit</code>.</li>
 </ul>
 </li>
 <li>Setup GitHub pages (this need local development setup):<ul>
 <li>Initialise documentation branch <code>poetry run mike deploy dev latest --update-aliases --push</code></li>
-<li>Configure GitHub Pages to deploy from the <code>gh-pages</code> branch (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages</code>) </li>
+<li>Configure GitHub Pages to deploy from the <code>gh-pages</code> branch (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages</code>)</li>
+<li>Add the <code>main</code> branch and the <code>v*.*.*</code> tag rules to the "deployment branches and tags" list in the <code>gh-pages</code> environment (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/environments</code>)</li>
 </ul>
 </li>
-<li>Create a GitHub Actions secret named <code>CODECLIMATE_REPORTER_ID</code> (at URL <code>https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/secrets/actions</code>) 
-  containing the codeclimate reporter id (you can find it at <code>https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter</code>).
-  If you don't want to use CodeClimate just delete <code>workflows/python-quality.yml</code>.</li>
-<li>Update the badges in <code>README.md</code>! (check <a href="https://shields.io/">shields.io</a> for extra badges)</li>
 </ul>
 <p><strong>IMPORTANT:</strong> The repository is configured to deploy on the <a href="https://test.pypi.org/">test PyPI repository</a>.
 It's strongly recommended to create the project in the <a href="https://test.pypi.org/">test PyPI repository</a> and test
