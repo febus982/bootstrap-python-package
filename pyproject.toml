@@ -76,12 +76,12 @@ concurrency = ["multiprocessing"]
 parallel = true
 
 [tool.coverage.report]
+fail_under = 100
 exclude_also = [
     "pragma: no cover",
     "pass",
     "\\.\\.\\.",
     ]
-
 
 [tool.ruff]
 select = ["E", "F", "I"]
