@@ -10,6 +10,15 @@ repo_url: 'https://github.com/febus982/bootstrap-python-package'
 plugins:
   - search
   - mike
+  - gen-files:
+      scripts:
+        - ci-scripts/gen_pages.py  # or any other name or path
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: sphinx
+            docstring_section_style: spacy
 
 theme:
   name: material
@@ -44,8 +53,9 @@ extra:
     provider: mike
     default: stable
 
-nav:
-  - Home: index.md
+#nav:
+#  - Home: index.md
+#  - api-reference.md
 
 markdown_extensions:
   - pymdownx.details
