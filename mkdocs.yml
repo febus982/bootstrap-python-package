@@ -12,7 +12,7 @@ plugins:
   - mike
   - gen-files:
       scripts:
-        - ci-scripts/gen_pages.py  # or any other name or path
+        - scripts/gen_pages.py  # or any other name or path
   - mkdocstrings:
       handlers:
         python:
