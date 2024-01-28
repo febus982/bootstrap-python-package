@@ -72,8 +72,8 @@ files = "bootstrap_python_package"
 [tool.coverage.run]
 branch = true
 source = ["bootstrap_python_package"]
-concurrency = ["multiprocessing"]
-parallel = true
+# It's not necessary to configure concurrency here
+# because pytest-cov takes care of that
 
 [tool.coverage.report]
 fail_under = 100
