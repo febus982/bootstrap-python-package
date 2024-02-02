@@ -28,11 +28,15 @@ classifiers = [
 ]
 
 [tool.poetry-dynamic-versioning]
-enable = true
+enable = false
 
 [build-system]
 requires = ["poetry-core", "poetry-dynamic-versioning"]
 build-backend = "poetry_dynamic_versioning.backend"
+
+############################
+### Package requirements ###
+############################
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.13"
@@ -57,17 +61,20 @@ pytest-cov = ">=4.0.0"
 pytest-factoryboy = ">=2.5.0"
 pytest-xdist = ">=3.0.2"
 ruff = ">=0.0.263"
+tox = ">=4.12.1"
 
-[tool.pytest.ini_options]
-asyncio_mode = "auto"
-minversion = "6.0"
-addopts = "-n auto --cov-report=term-missing"
-testpaths = [
-    "tests",
-]
+############################
+### Tools configuration  ###
+############################
 
-[tool.mypy]
-files = "bootstrap_python_package"
+[tool.black]
+target-version = ["py38", "py39", "py310", "py311", "py312"]
+extend-exclude = '''
+(
+  /docs,
+  .tox
+)
+'''
 
 [tool.coverage.run]
 branch = true
@@ -83,17 +90,23 @@ exclude_also = [
     "\\.\\.\\.",
     ]
 
+[tool.mypy]
+files = "bootstrap_python_package"
+python_version = "3.8"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+minversion = "6.0"
+addopts = "-n auto --cov-report=term-missing"
+testpaths = [
+    "tests",
+]
+
 [tool.ruff]
+extend-exclude = ["docs", ".tox"]
+
+[tool.ruff.lint]
 select = ["E", "F", "I"]
-extend-exclude = ["docs"]
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F401"]
-
-[tool.black]
-target-version = ["py38", "py39", "py310", "py311", "py312"]
-extend-exclude = '''
-(
-  /docs
-)
-'''

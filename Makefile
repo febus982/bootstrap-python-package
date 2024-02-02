@@ -10,16 +10,16 @@ ci-coverage:
 	poetry run pytest --cov --cov-report lcov
 
 typing:
-	poetry run mypy
+	tox -e typing
 
 format:
-	poetry run black --check .
+	tox -e format
 
 lint:
-	poetry run ruff .
+	tox -e lint
 
 bandit:
-	poetry run bandit -c .bandit.yml -r .
+	tox -e bandit
 
 format-fix:
 	poetry run black .
@@ -34,7 +34,8 @@ update-dependencies:
 	poetry update --with dev
 
 fix:  format-fix lint-fix
-check: typing format lint test bandit
+check:
+	tox
 
 docs:
 	poetry run mkdocs serve
