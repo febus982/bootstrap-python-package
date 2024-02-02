@@ -5,9 +5,8 @@ It is configured with all the following features:
 
 * Test suite using [pytest](https://docs.pytest.org/en/7.4.x/)
 * Typing using [mypy](https://mypy.readthedocs.io/en/stable/)
-* Linting using [ruff](https://github.com/astral-sh/ruff)
-* Code formatter using [black](https://pypi.org/project/black/)
-* Security checks using [bandit](https://github.com/PyCQA/bandit)
+* Linting, security and code format using [ruff](https://github.com/astral-sh/ruff) (using [black](https://pypi.org/project/black/)
+  code style and [bandit](https://github.com/PyCQA/bandit) security rules)
 * Integration with CodeClimate for code quality and coverage checks
 * CI pipeline supporting:
     * testing against multiple python versions

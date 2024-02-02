@@ -4,13 +4,12 @@
 [![stability-beta](https://img.shields.io/badge/stability-beta-33bbff.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#beta)
 
 [![Python tests](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-tests.yml/badge.svg?branch=main)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-tests.yml)
-[![Bandit checks](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-bandit.yml/badge.svg?branch=main)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-bandit.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/593e78ec96ed5ebb0dd3/maintainability)](https://codeclimate.com/github/febus982/bootstrap-python-package/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/593e78ec96ed5ebb0dd3/test_coverage)](https://codeclimate.com/github/febus982/bootstrap-python-package/test_coverage)
 
 [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json)](https://github.com/charliermarsh/ruff)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
 
 This template repository provides the boilerplate to create a python package.
@@ -18,9 +17,8 @@ It is configured with all the following features:
 
 * Test suite using [tox](https://tox.wiki/en/latest/index.html) and [pytest](https://docs.pytest.org/en/7.4.x/)
 * Typing using [mypy](https://mypy.readthedocs.io/en/stable/)
-* Linting using [ruff](https://github.com/astral-sh/ruff)
-* Code formatter using [black](https://pypi.org/project/black/)
-* Security checks using [bandit](https://github.com/PyCQA/bandit)
+* Linting, security and code format using [ruff](https://github.com/astral-sh/ruff) (using [black](https://pypi.org/project/black/)
+  code style and [bandit](https://github.com/PyCQA/bandit) security rules)
 * Integration with CodeClimate for code quality and coverage checks
 * CI pipeline supporting:
     * testing against multiple python versions
