@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
+  typing:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,5 +26,5 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install poetry tox
         make poetry-export
-    - name: Lint with ruff
-      run: make lint
+    - name: Check typing
+      run: make typing
