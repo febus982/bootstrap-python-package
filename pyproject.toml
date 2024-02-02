@@ -103,8 +103,10 @@ testpaths = [
 ]
 
 [tool.ruff]
-select = ["E", "F", "I"]
 extend-exclude = ["docs", ".tox"]
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
 "__init__.py" = ["F401"]
