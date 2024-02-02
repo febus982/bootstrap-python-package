@@ -516,9 +516,6 @@ It is configured with all the following features:</p>
 </ul>
 </li>
 </ul>
-<p>This project doesn't currently use <a href="https://tox.wiki/en/4.11.4/index.html">tox</a> or other matrix
-testing utilities. I prefer to run the tests only against the latest python locally, and run
-previous python versions directly in the CI pipeline.</p>
 <h2 id="how-to-use-this-repository-template-to-create-a-new-package">How to use this repository template to create a new package</h2>
 <ul>
 <li>Create your github repository using this template. (The big green <code>Use this template</code> button)</li>
@@ -572,9 +569,10 @@ the correct version on Pypi, omitting the <code>v</code> (ie. <code>v1.0.0</code
 <ul>
 <li><code>make dev-dependencies</code>: Install dev requirements</li>
 <li><code>make update-dependencies</code>: Update dev requirements</li>
-<li><code>make test</code>: Run test suite</li>
-<li><code>make check</code>: Run tests, code style and lint checks</li>
 <li><code>make fix</code>: Run code style and lint automatic fixes (where possible)</li>
+<li><code>make test</code>: Run test suite against system python version</li>
+<li><code>make check</code>: Run tests against all available python versions, code style and lint checks</li>
+<li><code>make type</code>, <code>make format</code>, <code>make lint</code>, <code>make bandit</code>: Run the relevant check</li>
 <li><code>make docs</code>: Render the mkdocs website locally</li>
 </ul>
 
