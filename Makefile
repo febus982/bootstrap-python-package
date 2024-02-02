@@ -18,11 +18,8 @@ format:
 lint:
 	tox -e lint
 
-bandit:
-	tox -e bandit
-
 format-fix:
-	poetry run black .
+	poetry run ruff format .
 
 lint-fix:
 	poetry run ruff . --fix
@@ -33,7 +30,7 @@ dev-dependencies:
 update-dependencies:
 	poetry update --with dev
 
-fix:  format-fix lint-fix
+fix: lint-fix format-fix
 check:
 	poetry export -f requirements.txt --output /tmp/requirements.txt --with dev
 	tox
