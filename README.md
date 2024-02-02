@@ -16,7 +16,7 @@
 This template repository provides the boilerplate to create a python package.
 It is configured with all the following features:
 
-* Test suite using [pytest](https://docs.pytest.org/en/7.4.x/)
+* Test suite using [tox](https://tox.wiki/en/latest/index.html) and [pytest](https://docs.pytest.org/en/7.4.x/)
 * Typing using [mypy](https://mypy.readthedocs.io/en/stable/)
 * Linting using [ruff](https://github.com/astral-sh/ruff)
 * Code formatter using [black](https://pypi.org/project/black/)
@@ -26,10 +26,6 @@ It is configured with all the following features:
     * testing against multiple python versions
     * releases on [PyPI](https://pypi.org)
     * GitHub pages documentation using [mkdocs](https://www.mkdocs.org)
-
-This project doesn't currently use [tox](https://tox.wiki/en/4.11.4/index.html) or other matrix
-testing utilities. I prefer to run the tests only against the latest python locally, and run
-previous python versions directly in the CI pipeline.
 
 ## How to use this repository template to create a new package
 
@@ -84,7 +80,8 @@ All the common commands used during development can be run using make targets:
 
 * `make dev-dependencies`: Install dev requirements
 * `make update-dependencies`: Update dev requirements
-* `make test`: Run test suite
-* `make check`: Run tests, code style and lint checks
 * `make fix`: Run code style and lint automatic fixes (where possible)
+* `make test`: Run test suite against system python version
+* `make check`: Run tests against all available python versions, code style and lint checks
+* `make type`, `make format`, `make lint`, `make bandit`: Run the relevant check
 * `make docs`: Render the mkdocs website locally

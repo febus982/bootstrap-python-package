@@ -14,10 +14,6 @@ It is configured with all the following features:
     * releases on [PyPI](https://pypi.org)
     * GitHub pages documentation using [mkdocs](https://www.mkdocs.org)
 
-This project doesn't currently use [tox](https://tox.wiki/en/4.11.4/index.html) or other matrix
-testing utilities. I prefer to run the tests only against the latest python locally, and run
-previous python versions directly in the CI pipeline.
-
 ## How to use this repository template to create a new package
 
 * Create your github repository using this template. (The big green `Use this template` button)
@@ -71,7 +67,8 @@ All the common commands used during development can be run using make targets:
 
 * `make dev-dependencies`: Install dev requirements
 * `make update-dependencies`: Update dev requirements
-* `make test`: Run test suite
-* `make check`: Run tests, code style and lint checks
 * `make fix`: Run code style and lint automatic fixes (where possible)
+* `make test`: Run test suite against system python version
+* `make check`: Run tests against all available python versions, code style and lint checks
+* `make type`, `make format`, `make lint`, `make bandit`: Run the relevant check
 * `make docs`: Render the mkdocs website locally
