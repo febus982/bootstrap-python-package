@@ -35,6 +35,7 @@ update-dependencies:
 
 fix:  format-fix lint-fix
 check:
+	poetry export -f requirements.txt --output /tmp/requirements.txt --with dev
 	tox
 
 docs:
