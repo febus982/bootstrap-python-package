@@ -46,8 +46,6 @@ optional = true
 
 [tool.poetry.group.dev.dependencies]
 coverage = ">=6.5.0"
-bandit = ">=1.7.6"
-black = ">=22.10.0"
 mkdocs = ">=1.4.3"
 mkdocstrings = { version = ">=0.24.0", extras = ["python"] }
 mkdocs-gen-files = ">=0.5.0"
@@ -66,15 +64,6 @@ tox = ">=4.12.1"
 ############################
 ### Tools configuration  ###
 ############################
-
-[tool.black]
-target-version = ["py38", "py39", "py310", "py311", "py312"]
-extend-exclude = '''
-(
-  /docs,
-  .tox
-)
-'''
 
 [tool.coverage.run]
 branch = true
@@ -104,9 +93,37 @@ testpaths = [
 
 [tool.ruff]
 extend-exclude = ["docs", ".tox"]
+target-version = "py38"
 
 [tool.ruff.lint]
-select = ["E", "F", "I"]
+select = [
+    "E",  # pycodestyle
+    "W",  # pycodestyle
+    "F",  # pyflakes
+    "I",  # isort
+    "N",  # pep8-naming
+    "S",  # flake8-bandit
+    "RUF",  # ruff-specific-rules
+]
+# Ignoring rules problematic with formatter
+# https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+ignore = [
+    "W191",
+    "E111",
+    "E114",
+    "E117",
+    "D206",
+    "D300",
+    "Q000",
+    "Q001",
+    "Q002",
+    "Q003",
+    "COM812",
+    "COM819",
+    "ISC001",
+    "ISC002",
+]
 
 [tool.ruff.lint.per-file-ignores]
-"__init__.py" = ["F401"]
+"__init__.py" = ["F401"]  # Ignore unused imports on init files
+"tests/**/*.py" = ["S101"]  # Allow assert usage on tests
