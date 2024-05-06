@@ -31,7 +31,7 @@ It is configured with all the following features:
 * Rename the `bootstrap_python_package` directory
 * Search and replace all the occurrences of `bootstrap-python-package` and `bootstrap_python_package`
 * Configure a pending trusted publisher on [pypi](https://pypi.org/manage/account/publishing) using the following values:
-    * PyPI Project Name: what you renamed the directory `bootstrap_python_package` to (Double check `_` and `-`)
+    * PyPI Project Name: The github repository name (in this case `bootstrap-python-package`)
     * Owner: The github repository owner (in this case `febus982`)
     * Repository name: The github repository name (in this case `bootstrap-python-package`)
     * Workflow name: `release.yml`
