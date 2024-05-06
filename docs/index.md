@@ -1,9 +1,21 @@
 # bootstrap-python-package
+![Static Badge](https://img.shields.io/badge/Python-3.8_%7C_3.9_%7C_3.10_%7C_3.11_%7C_3.12-blue?logo=python&logoColor=white)
+[![Stable Version](https://img.shields.io/pypi/v/bootstrap-python-package?color=blue)](https://pypi.org/project/bootstrap-python-package/)
+[![stability-beta](https://img.shields.io/badge/stability-beta-33bbff.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#beta)
+
+[![Python tests](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-tests.yml/badge.svg?branch=main)](https://github.com/febus982/bootstrap-python-package/actions/workflows/python-tests.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/593e78ec96ed5ebb0dd3/maintainability)](https://codeclimate.com/github/febus982/bootstrap-python-package/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/593e78ec96ed5ebb0dd3/test_coverage)](https://codeclimate.com/github/febus982/bootstrap-python-package/test_coverage)
+
+[![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json)](https://github.com/charliermarsh/ruff)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
 
 This template repository provides the boilerplate to create a python package.
 It is configured with all the following features:
 
-* Test suite using [pytest](https://docs.pytest.org/en/7.4.x/)
+* Test suite using [tox](https://tox.wiki/en/latest/index.html) and [pytest](https://docs.pytest.org/en/7.4.x/)
 * Typing using [mypy](https://mypy.readthedocs.io/en/stable/)
 * Linting, security and code format using [ruff](https://github.com/astral-sh/ruff) (using [black](https://pypi.org/project/black/)
   code style and [bandit](https://github.com/PyCQA/bandit) security rules)
@@ -12,6 +24,7 @@ It is configured with all the following features:
     * testing against multiple python versions
     * releases on [PyPI](https://pypi.org)
     * GitHub pages documentation using [mkdocs](https://www.mkdocs.org)
+* PyCharm profile basic configuration
 
 ## How to use this repository template to create a new package
 
@@ -19,7 +32,7 @@ It is configured with all the following features:
 * Rename the `bootstrap_python_package` directory
 * Search and replace all the occurrences of `bootstrap-python-package` and `bootstrap_python_package`
 * Configure a pending trusted publisher on [pypi](https://pypi.org/manage/account/publishing) using the following values:
-    * PyPI Project Name: what you renamed the directory `bootstrap_python_package` to (Double check `_` and `-`)
+    * PyPI Project Name: The github repository name (in this case `bootstrap-python-package`)
     * Owner: The github repository owner (in this case `febus982`)
     * Repository name: The github repository name (in this case `bootstrap-python-package`)
     * Workflow name: `release.yml`
@@ -27,6 +40,7 @@ It is configured with all the following features:
   containing the codeclimate reporter id (you can find it at `https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter`).
   If you don't want to use CodeClimate just delete `workflows/python-quality.yml`.
 * Update the badges in `README.md`! (check [shields.io](https://shields.io/) for extra badges)
+* Update the PyCharm Copyright profile in the IDE settings: Editor | Copyright | Copyright Profiles (if you want to use it)
 * Setup local development:
     * Clone the repository
     * Install poetry `pip install poetry`

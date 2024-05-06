@@ -24,6 +24,7 @@ It is configured with all the following features:
     * testing against multiple python versions
     * releases on [PyPI](https://pypi.org)
     * GitHub pages documentation using [mkdocs](https://www.mkdocs.org)
+* PyCharm profile basic configuration
 
 ## How to use this repository template to create a new package
 
@@ -39,6 +40,7 @@ It is configured with all the following features:
   containing the codeclimate reporter id (you can find it at `https://codeclimate.com/repos/YOUR_REPO_ID/settings/test_reporter`).
   If you don't want to use CodeClimate just delete `workflows/python-quality.yml`.
 * Update the badges in `README.md`! (check [shields.io](https://shields.io/) for extra badges)
+* Update the PyCharm Copyright profile in the IDE settings: Editor | Copyright | Copyright Profiles (if you want to use it)
 * Setup local development:
     * Clone the repository
     * Install poetry `pip install poetry`
