@@ -10,6 +10,10 @@ repo_url: 'https://github.com/febus982/bootstrap-python-package'
 plugins:
   - search
   - mike
+  - awesome-pages
+  - macros:
+      modules:
+        - mkdocs_macros_adr_summary
   - gen-files:
       scripts:
         - scripts/gen_pages.py  # or any other name or path
@@ -19,6 +23,12 @@ plugins:
           options:
             docstring_style: sphinx
             docstring_section_style: spacy
+
+# Do not use the nav section in this file but reference to the .pages files
+# in the docs/ directory and subdirectories (awesome-pages plugin)
+# https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
+#nav:
+#  - Home: index.md
 
 theme:
   name: material

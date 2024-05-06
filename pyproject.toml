@@ -48,6 +48,8 @@ optional = true
 coverage = ">=6.5.0"
 mkdocs = ">=1.4.3"
 mkdocstrings = { version = ">=0.24.0", extras = ["python"] }
+mkdocs-awesome-pages-plugin = "*"
+mkdocs-macros-adr-summary = "*"
 mkdocs-gen-files = ">=0.5.0"
 mkdocs-material = ">=9.1.16"
 mike = ">=2.0.0"
