@@ -1,7 +1,7 @@
 [project]
 name = "bootstrap-python-package"
 dynamic = ["version"]
-description = "A manager to easily handle multiple SQLAlchemy configurations"
+description = "A nice package meant to achieve world domination!"
 authors = [{ name = "Federico Busetti", email = "729029+febus982@users.noreply.github.com" }]
 requires-python = ">=3.9,<3.14"
 readme = "README.md"

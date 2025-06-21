@@ -24,6 +24,6 @@
 # DEALINGS IN THE SOFTWARE.                                                    =
 #===============================================================================
 
-VERSION=$(poetry version -s)
+VERSION=$(uv version --short)
 SEMVER=( ${VERSION//./ } )
 echo "${SEMVER[0]}.${SEMVER[1]}"
