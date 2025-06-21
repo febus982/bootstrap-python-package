@@ -1,14 +1,11 @@
-[tool.poetry]
+[project]
 name = "bootstrap-python-package"
-version = "0.0.0"
+dynamic = ["version"]
 description = "A manager to easily handle multiple SQLAlchemy configurations"
-license = "MIT"
-authors = ["Federico Busetti <729029+febus982@users.noreply.github.com>"]
-repository = "https://github.com/febus982/bootstrap-python-package"
-homepage = "https://febus982.github.io/bootstrap-python-package"
+authors = [{ name = "Federico Busetti", email = "729029+febus982@users.noreply.github.com" }]
+requires-python = ">=3.9,<3.14"
 readme = "README.md"
-packages = [{include = "bootstrap_python_package"}]
-#keywords = ["add", "keywords", "here"]
+license = "MIT"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Framework :: AsyncIO",
@@ -24,54 +21,58 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
-    "Typing :: Typed"
+    "Typing :: Typed",
 ]
 
-[tool.poetry-dynamic-versioning]
-enable = false
+[project.urls]
+Homepage = "https://febus982.github.io/bootstrap-python-package"
+Repository = "https://github.com/febus982/bootstrap-python-package"
+
+[dependency-groups]
+dev = [
+    "coverage>=6.5.0",
+    "mkdocs>=1.4.3",
+    "mkdocstrings[python]>=0.24.0",
+    "mkdocs-awesome-pages-plugin",
+    "mkdocs-macros-adr-summary",
+    "mkdocs-gen-files>=0.5.0",
+    "mkdocs-material>=9.1.16",
+    "mike>=2.0.0",
+    "mypy>=0.990",
+    "pymdown-extensions>=10.0.1",
+    "pytest>=8.0.0,<9",
+    "pytest-asyncio>=0.20.3",
+    "pytest-cov>=4.0.0",
+    "pytest-factoryboy>=2.5.0",
+    "pytest-xdist>=3.0.2",
+    "ruff>=0.0.263",
+    "tox>=4.12.1",
+    "tox-uv>=1.26.0",
+    "uv-dynamic-versioning>=0.8.2",
+]
 
 [build-system]
-requires = ["poetry-core", "poetry-dynamic-versioning"]
-build-backend = "poetry_dynamic_versioning.backend"
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
 
-############################
-### Package requirements ###
-############################
+[tool.hatch.build.targets.sdist]
+include = ["bootstrap_python_package"]
 
-[tool.poetry.dependencies]
-python = ">=3.9,<3.14"
+[tool.hatch.build.targets.wheel]
+include = ["bootstrap_python_package"]
 
-[tool.poetry.group.dev]
-optional = true
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
 
-[tool.poetry.group.dev.dependencies]
-coverage = ">=6.5.0"
-mkdocs = ">=1.4.3"
-mkdocstrings = { version = ">=0.24.0", extras = ["python"] }
-mkdocs-awesome-pages-plugin = "*"
-mkdocs-macros-adr-summary = "*"
-mkdocs-gen-files = ">=0.5.0"
-mkdocs-material = ">=9.1.16"
-mike = ">=2.0.0"
-mypy = ">=0.990"
-pymdown-extensions = ">=10.0.1"
-pytest = "^8.0.0"
-pytest-asyncio = ">=0.20.3"
-pytest-cov = ">=4.0.0"
-pytest-factoryboy = ">=2.5.0"
-pytest-xdist = ">=3.0.2"
-ruff = ">=0.0.263"
-tox = ">=4.12.1"
-
-############################
-### Tools configuration  ###
-############################
+[tool.hatch.build.hooks.version]
+path = "bootstrap_python_package/version.py"
 
 [tool.coverage.run]
 branch = true
 source = ["bootstrap_python_package"]
-# It's not necessary to configure concurrency here
-# because pytest-cov takes care of that
+omit = [
+    "bootstrap_python_package/version.py",
+]
 
 [tool.coverage.report]
 fail_under = 100
