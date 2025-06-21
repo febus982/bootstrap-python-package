@@ -43,12 +43,12 @@ It is configured with all the following features:
 * Update the PyCharm Copyright profile in the IDE settings: Editor | Copyright | Copyright Profiles (if you want to use it)
 * Setup local development:
     * Clone the repository
-    * Install poetry `pip install poetry`
+    * [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
     * Install dev dependencies with `make dev-dependencies`
     * (optional) It is strongly recommended to install [pre-commit](https://pre-commit.com/#installation)
       and run `pre-commit install` so that formatting and linting are automatically executed during `git commit`.
 * Setup GitHub pages (this need local development setup):
-    * Initialise documentation branch `poetry run mike deploy dev latest --update-aliases --push`
+    * Initialise documentation branch `uv run mike deploy dev latest --update-aliases --push`
     * Configure GitHub Pages to deploy from the `gh-pages` branch (at URL `https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/pages`)
     * Add the `main` branch and the `v*.*.*` tag rules to the "deployment branches and tags" list in the `gh-pages` environment (at URL `https://github.com/GITHUB_NAME_OR_ORGANIZATION/GITHUB_REPOSITORY/settings/environments`)
 
@@ -59,7 +59,7 @@ and remove the marked lines in `workflows/release.yml`.
 
 ## Package release
 
-This setup uses [poetry-dynamic-versioning](https://github.com/mtkennerly/poetry-dynamic-versioning).
+This setup uses [uv-dynamic-versioning](https://github.com/ninoseki/uv-dynamic-versioning/tree/main).
 This means it's not necessary to commit the version in the code but the CI pipeline
 will infer it from the git tag.
 
@@ -72,14 +72,13 @@ To release a new version, just create a new release and tag in the GitHub reposi
 the convention `vX.X.X` (semantic versioning preceded by lowercase `v`). It will publish
 the correct version on Pypi, omitting the `v` (ie. `v1.0.0` will publish `1.0.0`).
 
-This format can be customized, refer to [poetry-dynamic-versioning docs](https://github.com/mtkennerly/poetry-dynamic-versioning)
+This format can be customized, refer to [uv-dynamic-versioning docs](https://github.com/ninoseki/uv-dynamic-versioning/tree/main).
 
 ## Commands for development
 
 All the common commands used during development can be run using make targets:
 
 * `make dev-dependencies`: Install dev requirements
-* `make update-dependencies`: Update dev requirements
 * `make fix`: Run code style and lint automatic fixes (where possible)
 * `make test`: Run test suite against system python version
 * `make check`: Run tests against all available python versions, code style and lint checks
