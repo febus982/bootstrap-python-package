@@ -79,7 +79,6 @@ This format can be customized, refer to [uv-dynamic-versioning docs](https://git
 All the common commands used during development can be run using make targets:
 
 * `make dev-dependencies`: Install dev requirements
-* `make update-dependencies`: Update dev requirements
 * `make fix`: Run code style and lint automatic fixes (where possible)
 * `make test`: Run test suite against system python version
 * `make check`: Run tests against all available python versions, code style and lint checks

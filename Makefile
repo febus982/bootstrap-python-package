@@ -4,9 +4,6 @@
 ###### dev commands #####
 #########################
 dev-dependencies:
-	uv sync --all-groups --frozen
-
-update-dependencies:
 	uv lock --upgrade
 	uv sync --all-groups --frozen
 
