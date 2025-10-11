@@ -42,7 +42,7 @@ jobs:
       - name: Set up Python 3.13
         uses: actions/setup-python@v6
         with:
-          python-version: "3.13"
+          python-version: "3.14"
 
       # Here we want to install the current package in editable mode,
       # in case mkdocs needs the package (i.e. we are building a mkdocs plugin).
