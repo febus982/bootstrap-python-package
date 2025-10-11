@@ -3,7 +3,7 @@ name = "bootstrap-python-package"
 dynamic = ["version"]
 description = "A nice package meant to achieve world domination!"
 authors = [{ name = "Federico Busetti", email = "729029+febus982@users.noreply.github.com" }]
-requires-python = ">=3.9,<3.14"
+requires-python = ">=3.14,<3.15"
 readme = "README.md"
 license = "MIT"
 classifiers = [
